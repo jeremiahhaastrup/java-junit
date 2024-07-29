@@ -30,5 +30,19 @@ class CompassTest {
                 () -> assertEquals(WEST, compass.rotate(SOUTH, compass.direction)),
                 () -> assertEquals(NORTH, compass.rotate(WEST, compass.direction))
         );
+
+    }
+
+    @Test
+    @DisplayName("Test all points with direction left")
+    public void testAllPointsWithLeft() {
+        Compass compass = new Compass();
+        compass.direction = LEFT;
+        assertAll(
+                () -> assertEquals(WEST, compass.rotate(NORTH, compass.direction)),
+                () -> assertEquals(NORTH, compass.rotate(EAST, compass.direction)),
+                () -> assertEquals(EAST, compass.rotate(SOUTH, compass.direction)),
+                () -> assertEquals(SOUTH, compass.rotate(WEST, compass.direction))
+        );
     }
 }
