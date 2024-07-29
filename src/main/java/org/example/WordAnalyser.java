@@ -1,4 +1,5 @@
 package org.example;
+import java.util.HashMap;
 import java.util.Map;
 
 public class WordAnalyser {
@@ -20,6 +21,21 @@ public class WordAnalyser {
 
     public Map<Character, Integer> calculateLetterFrequency(String text) {
         // TODO: Implement the logic to calculate the frequency of each letter in the given text
-        return null;
+        HashMap<Character,Integer> hashMap = new HashMap<>();
+        String alphabet = "abcdefghijklmnopqrstuvwxyz";
+        String lowerCaseText = text.toLowerCase();
+
+        for (int i = 0; i < alphabet.length(); i++) {
+            int num = 0;
+            hashMap.put(alphabet.charAt(i), 0);
+            for (int j = 0; j < lowerCaseText.length(); j ++) {
+                if (lowerCaseText.charAt(j) == alphabet.charAt(i)) {
+                    num++;
+                    hashMap.replace(lowerCaseText.charAt(j), num);
+
+                }
+            }
+        }
+        return hashMap;
     }
 }

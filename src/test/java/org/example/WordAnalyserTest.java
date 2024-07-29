@@ -4,6 +4,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 class WordAnalyserTest {
@@ -26,5 +29,11 @@ class WordAnalyserTest {
     @Test
     void testCalculateLetterFrequency() {
         // TODO: Implement the logic to calculate the frequency of each letter in the given text
+        Map <Character, Integer> result = new HashMap<>();
+        result = wordAnalyser.calculateLetterFrequency("This is a fairly boring thing.");
+
+        assertEquals(0, result.get('z'));
+        assertEquals(2, result.get('t'));
+
     }
 }
