@@ -7,8 +7,17 @@ public class Compass {
     Direction direction;
 
     public Point rotate(Point point, Direction direction) {
-
-        return null;
+        switch (point){
+            case NORTH:
+                return Point.EAST;
+            case EAST:
+                return Point.SOUTH;
+            case SOUTH:
+                return Point.WEST;
+            case WEST:
+                return Point.NORTH;
+        }
+        return point;
     }
 
 }

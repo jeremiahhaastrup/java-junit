@@ -3,9 +3,8 @@ package org.example;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
-import static org.example.Compass.Direction.RIGHT;
-import static org.example.Compass.Point.EAST;
-import static org.example.Compass.Point.NORTH;
+import static org.example.Compass.Direction.*;
+import static org.example.Compass.Point.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 class CompassTest {
@@ -20,4 +19,16 @@ class CompassTest {
         assertEquals(EAST, result);
     }
 
+    @Test
+    @DisplayName("Test all points with direction right")
+    public void testAllPointsWithRight(){
+        Compass compass = new Compass();
+        compass.direction = RIGHT;
+        assertAll(
+                () -> assertEquals(EAST, compass.rotate(NORTH, compass.direction)),
+                () -> assertEquals(SOUTH, compass.rotate(EAST, compass.direction)),
+                () -> assertEquals(WEST, compass.rotate(SOUTH, compass.direction)),
+                () -> assertEquals(NORTH, compass.rotate(WEST, compass.direction))
+        );
+    }
 }
